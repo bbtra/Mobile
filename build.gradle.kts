@@ -3,7 +3,13 @@ import com.android.tools.r8.internal.de
 plugins {
     alias(libs.plugins.android.application)
 }
-
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("gradle/libs.versions.toml"))
+        }
+    }
+}
 android {
     namespace = "com.example.myapplication"
     compileSdk = 34
